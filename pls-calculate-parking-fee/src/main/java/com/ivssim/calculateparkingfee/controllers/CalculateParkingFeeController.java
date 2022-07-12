@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 public class CalculateParkingFeeController {
-    private final static String DEFAULT_URL = "http://localhost:8089";
+    private final static String DEFAULT_URL = "http://pls-vehicle-service";
     private final static String FIND_CAR_BY_ID_URL = "/vehicles/{id}";
     private final CalculateParkingFeeService calculateParkingFeeService;
     @Autowired

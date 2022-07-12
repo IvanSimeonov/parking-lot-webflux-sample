@@ -3,4 +3,11 @@ spring:
     name: pls-calculate-parking-fee-service
 
 server:
-  port: 8090
+  port: 8081
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    fetchRegistry: true
+    registerWithEureka: true
