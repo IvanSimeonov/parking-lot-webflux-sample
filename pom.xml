@@ -12,6 +12,7 @@
         <module>pls-vehicle</module>
         <module>pls-calculate-parking-fee</module>
         <module>pls-discovery-service</module>
+        <module>pls-api-gateway</module>
     </modules>
 
     <name>parking-lot-system</name>

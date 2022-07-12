@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: pls-api-gateway-service
+  cloud:
+    discovery:
+      enabled: true
+    gateway:
+      routes:
+        - id: pls-vehicle-service
+          uri: lb://PLS-VEHICLE-SERVICE
+          predicates:
+            - Path=/vehicles/**
+        - id: pls-calculate-parking-fee-service
+          uri: lb://PLS-CALCULATE-PARKING-FEE-SERVICE
+          predicates:
+            - Path=/calculate-fee-costs/**
+
+server:
+  port: 8088
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    fetchRegistry: true
+    registerWithEureka: true
