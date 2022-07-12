@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>pls-vehicle</module>
+        <module>pls-calculate-parking-fee</module>
     </modules>
 
     <name>parking-lot-system</name>

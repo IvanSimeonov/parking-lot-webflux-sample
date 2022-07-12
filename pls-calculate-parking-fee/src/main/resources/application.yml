@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: pls-calculate-parking-fee-service
+
+server:
+  port: 8090
