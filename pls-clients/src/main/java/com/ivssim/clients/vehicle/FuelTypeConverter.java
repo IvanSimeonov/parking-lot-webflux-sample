@@ -1,4 +1,4 @@
-package com.ivssim.vehicle.enums;
+package com.ivssim.clients.vehicle;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

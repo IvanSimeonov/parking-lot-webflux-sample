@@ -1,8 +1,8 @@
 package com.ivssim.vehicle.repositories;
 
-import com.ivssim.vehicle.enums.EuropeanEmissionStandard;
-import com.ivssim.vehicle.enums.FuelType;
-import com.ivssim.vehicle.enums.VehicleType;
+import com.ivssim.clients.vehicle.EuropeanEmissionStandard;
+import com.ivssim.clients.vehicle.FuelType;
+import com.ivssim.clients.vehicle.VehicleType;
 import com.ivssim.vehicle.models.Vehicle;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

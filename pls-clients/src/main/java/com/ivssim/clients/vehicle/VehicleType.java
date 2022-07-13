@@ -1,4 +1,4 @@
-package com.ivssim.vehicle.enums;
+package com.ivssim.clients.vehicle;
 
 public enum VehicleType {
     SEDAN,

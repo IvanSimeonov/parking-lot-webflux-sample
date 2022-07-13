@@ -1,9 +1,9 @@
 package com.ivssim.vehicle.controllers;
 
-import com.ivssim.vehicle.domains.VehicleDTO;
-import com.ivssim.vehicle.enums.EuropeanEmissionStandard;
-import com.ivssim.vehicle.enums.FuelType;
-import com.ivssim.vehicle.enums.VehicleType;
+import com.ivssim.clients.vehicle.EuropeanEmissionStandard;
+import com.ivssim.clients.vehicle.FuelType;
+import com.ivssim.clients.vehicle.VehicleDTO;
+import com.ivssim.clients.vehicle.VehicleType;
 import com.ivssim.vehicle.services.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

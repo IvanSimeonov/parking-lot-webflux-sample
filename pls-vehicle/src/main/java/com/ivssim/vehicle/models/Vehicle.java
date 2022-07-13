@@ -1,8 +1,9 @@
 package com.ivssim.vehicle.models;
 
-import com.ivssim.vehicle.enums.EuropeanEmissionStandard;
-import com.ivssim.vehicle.enums.FuelType;
-import com.ivssim.vehicle.enums.VehicleType;
+
+import com.ivssim.clients.vehicle.EuropeanEmissionStandard;
+import com.ivssim.clients.vehicle.FuelType;
+import com.ivssim.clients.vehicle.VehicleType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

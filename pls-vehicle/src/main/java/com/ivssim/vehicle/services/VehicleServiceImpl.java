@@ -1,9 +1,10 @@
 package com.ivssim.vehicle.services;
 
-import com.ivssim.vehicle.domains.VehicleDTO;
-import com.ivssim.vehicle.enums.EuropeanEmissionStandard;
-import com.ivssim.vehicle.enums.FuelType;
-import com.ivssim.vehicle.enums.VehicleType;
+
+import com.ivssim.clients.vehicle.EuropeanEmissionStandard;
+import com.ivssim.clients.vehicle.FuelType;
+import com.ivssim.clients.vehicle.VehicleDTO;
+import com.ivssim.clients.vehicle.VehicleType;
 import com.ivssim.vehicle.mappers.VehicleMapper;
 import com.ivssim.vehicle.models.Vehicle;
 import com.ivssim.vehicle.repositories.VehicleRepository;

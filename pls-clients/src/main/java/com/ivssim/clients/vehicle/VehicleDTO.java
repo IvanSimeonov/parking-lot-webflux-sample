@@ -1,22 +1,19 @@
-package com.ivssim.calculateparkingfee.models;
+package com.ivssim.clients.vehicle;
 
-import com.ivssim.calculateparkingfee.enums.EuropeanEmissionStandard;
-import com.ivssim.calculateparkingfee.enums.FuelType;
-import com.ivssim.calculateparkingfee.enums.VehicleType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
+import lombok.*;
+
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
 
 @Getter
 @Setter
+@ToString
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Vehicle {
-
+public class VehicleDTO implements Serializable {
 
     private Long id;
 
@@ -43,4 +40,3 @@ public class Vehicle {
     private FuelType fuelType;
 
 }
-
