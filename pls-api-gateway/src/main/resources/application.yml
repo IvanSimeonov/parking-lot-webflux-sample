@@ -14,6 +14,10 @@ spring:
           uri: lb://PLS-CALCULATE-PARKING-FEE-SERVICE
           predicates:
             - Path=/calculate-fee-costs/**
+        - id: pls-notification-service
+          uri: lb://PLS-NOTIFICATION-SERVICE
+          predicates:
+            - Path=/notifications/**
   zipkin:
     base-url: http://localhost:9411
 

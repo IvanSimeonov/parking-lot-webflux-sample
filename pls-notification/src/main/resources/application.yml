@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: pls-notification-service
+  jpa:
+    showSql: true
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    url: jdbc:h2:mem:testdbnotifications
+  h2:
+    console:
+      enabled: true
+  zipkin:
+    base-url: http://localhost:9411
+
+server:
+  port: 8082
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    fetchRegistry: true
+    registerWithEureka: true

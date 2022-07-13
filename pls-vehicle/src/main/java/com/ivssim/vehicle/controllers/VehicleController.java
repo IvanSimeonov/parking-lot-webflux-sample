@@ -25,69 +25,58 @@ public class VehicleController {
     }
 
     @GetMapping("/vehicles/{id}")
-    public ResponseEntity<Mono<VehicleDTO>> getVehicleById(@PathVariable("id") Long id) {
-        Mono<VehicleDTO> vehicle = this.vehicleService.findVehicleById(id);
-        return ResponseEntity.ok().body(vehicle);
+    public Mono<VehicleDTO> getVehicleById(@PathVariable("id") Long id) {
+        return this.vehicleService.findVehicleById(id);
     }
 
     @GetMapping("/vehicles/licensePlate")
-    public ResponseEntity<Mono<VehicleDTO>> getVehicleByLicensePlate(@RequestParam("licensePlate") String licensePlate) {
-        Mono<VehicleDTO> vehicle = this.vehicleService.findVehicleByLicensePlate(licensePlate);
-        return ResponseEntity.ok().body(vehicle);
+    public Mono<VehicleDTO> getVehicleByLicensePlate(@RequestParam("licensePlate") String licensePlate) {
+        return this.vehicleService.findVehicleByLicensePlate(licensePlate);
     }
 
     @GetMapping("/vehicles")
-    public ResponseEntity<Flux<VehicleDTO>> getAllVehicles() {
-        Flux<VehicleDTO> vehicles = this.vehicleService.findAllVehicles();
-        return ResponseEntity.ok().body(vehicles);
+    public Flux<VehicleDTO> getAllVehicles() {
+        return this.vehicleService.findAllVehicles();
     }
 
     @GetMapping("/vehicles/brand")
-    public ResponseEntity<Flux<VehicleDTO>> getAllVehiclesByBrand(@RequestParam("brand") String brand) {
-        Flux<VehicleDTO> vehicles = this.vehicleService.findVehiclesByBrand(brand);
-        return ResponseEntity.ok().body(vehicles);
+    public Flux<VehicleDTO> getAllVehiclesByBrand(@RequestParam("brand") String brand) {
+        return this.vehicleService.findVehiclesByBrand(brand);
     }
 
     @GetMapping("/vehicles/vehicleType")
-    public ResponseEntity<Flux<VehicleDTO>> getAllVehiclesByVehicleType(@RequestParam("vehicleType") String vehicleType) {
-        Flux<VehicleDTO> vehicles = this.vehicleService.findVehiclesByVehicleType(VehicleType.valueOf(vehicleType));
-        return ResponseEntity.ok().body(vehicles);
+    public Flux<VehicleDTO> getAllVehiclesByVehicleType(@RequestParam("vehicleType") String vehicleType) {
+        return this.vehicleService.findVehiclesByVehicleType(VehicleType.valueOf(vehicleType));
     }
 
     @GetMapping("/vehicles/fuelType")
-    public ResponseEntity<Flux<VehicleDTO>> getAllVehiclesByFuelType(@RequestParam("fuelType") String fuelType) {
-        Flux<VehicleDTO> vehicles = this.vehicleService.findVehiclesByFuelType(FuelType.valueOf(fuelType));
-        return ResponseEntity.ok().body(vehicles);
+    public Flux<VehicleDTO> getAllVehiclesByFuelType(@RequestParam("fuelType") String fuelType) {
+        return this.vehicleService.findVehiclesByFuelType(FuelType.valueOf(fuelType));
     }
 
     @GetMapping("/vehicles/europeanEmissionStandard")
-    public ResponseEntity<Flux<VehicleDTO>> getAllVehiclesByEuropeanEmissionStandard(@RequestParam("europeanEmissionStandard") String europeanEmissionStandard) {
-        Flux<VehicleDTO> vehicles = this.vehicleService.findVehiclesByEuropeanEmissionStandard(EuropeanEmissionStandard.valueOf(europeanEmissionStandard));
-        return ResponseEntity.ok().body(vehicles);
+    public Flux<VehicleDTO> getAllVehiclesByEuropeanEmissionStandard(@RequestParam("europeanEmissionStandard") String europeanEmissionStandard) {
+        return this.vehicleService.findVehiclesByEuropeanEmissionStandard(EuropeanEmissionStandard.valueOf(europeanEmissionStandard));
     }
 
     @GetMapping("/vehicles/horsePowerGreaterEqual")
-    public ResponseEntity<Flux<VehicleDTO>> getAllVehiclesByHorsePowerGreater(@RequestParam("horsePowerGreaterEqual") Integer horsePowerGreaterEqual) {
-        Flux<VehicleDTO> vehicles = this.vehicleService.findVehicleByHorsePowerGreaterThanEqual(horsePowerGreaterEqual);
-        return ResponseEntity.ok().body(vehicles);
+    public Flux<VehicleDTO> getAllVehiclesByHorsePowerGreater(@RequestParam("horsePowerGreaterEqual") Integer horsePowerGreaterEqual) {
+        return this.vehicleService.findVehicleByHorsePowerGreaterThanEqual(horsePowerGreaterEqual);
     }
 
     @GetMapping("/vehicles/horsePowerLesserEqual")
-    public ResponseEntity<Flux<VehicleDTO>> getAllVehiclesByHorsePowerLesser(@RequestParam("horsePowerLesserEqual") Integer horsePowerLesserEqual) {
-        Flux<VehicleDTO> vehicles = this.vehicleService.findVehicleByHorsePowerLessThanEqual(horsePowerLesserEqual);
-        return ResponseEntity.ok().body(vehicles);
+    public Flux<VehicleDTO> getAllVehiclesByHorsePowerLesser(@RequestParam("horsePowerLesserEqual") Integer horsePowerLesserEqual) {
+        return this.vehicleService.findVehicleByHorsePowerLessThanEqual(horsePowerLesserEqual);
     }
 
     @GetMapping("/vehicles/manufactureDateAfter")
-    public ResponseEntity<Flux<VehicleDTO>> getAllVehiclesByManufactureDateAfter(@RequestParam("manufactureDateAfter") Date manufactureDateAfter) {
-        Flux<VehicleDTO> vehicles = this.vehicleService.findVehiclesByManufactureDateAfter(manufactureDateAfter);
-        return ResponseEntity.ok().body(vehicles);
+    public Flux<VehicleDTO> getAllVehiclesByManufactureDateAfter(@RequestParam("manufactureDateAfter") Date manufactureDateAfter) {
+        return this.vehicleService.findVehiclesByManufactureDateAfter(manufactureDateAfter);
     }
 
     @GetMapping("/vehicles/manufactureDateBefore")
-    public ResponseEntity<Flux<VehicleDTO>> getAllVehiclesByCreatedDateBefore(@RequestParam("manufactureDateBefore") Date manufactureDateBefore) {
-        Flux<VehicleDTO> vehicles = this.vehicleService.findVehiclesByManufactureDateBefore(manufactureDateBefore);
-        return ResponseEntity.ok().body(vehicles);
+    public Flux<VehicleDTO> getAllVehiclesByCreatedDateBefore(@RequestParam("manufactureDateBefore") Date manufactureDateBefore) {
+        return this.vehicleService.findVehiclesByManufactureDateBefore(manufactureDateBefore);
     }
 
     @PostMapping("/vehicles")

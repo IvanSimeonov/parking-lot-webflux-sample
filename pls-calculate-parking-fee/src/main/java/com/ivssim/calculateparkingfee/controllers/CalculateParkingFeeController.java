@@ -1,6 +1,8 @@
 package com.ivssim.calculateparkingfee.controllers;
 
 import com.ivssim.calculateparkingfee.services.CalculateParkingFeeService;
+import com.ivssim.clients.notification.NotificationClient;
+import com.ivssim.clients.notification.NotificationDTO;
 import com.ivssim.clients.vehicle.VehicleClient;
 import com.ivssim.clients.vehicle.VehicleDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,24 +14,32 @@ import reactor.core.publisher.Mono;
 
 @RestController
 public class CalculateParkingFeeController {
-    private final static String DEFAULT_URL = "http://pls-vehicle-service";
-    private final static String FIND_CAR_BY_ID_URL = "/vehicles/{id}";
+    private final static String DEFAULT_URL = "http://pls-notification-service";
 
-    private final VehicleClient vehicleClient ;
+    private final VehicleClient vehicleClient;
+    private final NotificationClient notificationClient;
     private final CalculateParkingFeeService calculateParkingFeeService;
     @Autowired
     private WebClient.Builder webClientBuilder;
 
     @Autowired
-    public CalculateParkingFeeController(CalculateParkingFeeService calculateParkingFeeService, VehicleClient vehicleClient) {
+    public CalculateParkingFeeController(CalculateParkingFeeService calculateParkingFeeService, VehicleClient vehicleClient, NotificationClient notificationClient) {
         this.calculateParkingFeeService = calculateParkingFeeService;
         this.vehicleClient = vehicleClient;
+        this.notificationClient = notificationClient;
     }
 
     @GetMapping("/calculate-fee-costs/{id}")
     public Mono<Double> CalculateFeeCosts(@PathVariable("id") long id) {
-//        Mono<Vehicle> vehicleMono = webClientBuilder.build().get().uri(DEFAULT_URL + FIND_CAR_BY_ID_URL, id).retrieve().bodyToMono(Vehicle.class);
         Mono<VehicleDTO> vehicleMono = vehicleClient.getVehicleById(id);
+        vehicleMono.subscribe(vehicleDTO -> {
+            NotificationDTO notificationDTO = new NotificationDTO();
+            notificationDTO.setMessage("Vehicle Calculation Fee Completed!");
+            notificationDTO.setVehicleLicensePlate(vehicleDTO.getLicensePlate());
+            notificationDTO.setVehicleId(vehicleDTO.getId());
+            webClientBuilder.build().post().uri(DEFAULT_URL).body(Mono.just(notificationDTO), NotificationDTO.class).retrieve().bodyToMono(NotificationDTO.class);
+        });
+
         return calculateParkingFeeService.calculateFee(vehicleMono);
     }
 

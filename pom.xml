@@ -14,6 +14,7 @@
         <module>pls-discovery-service</module>
         <module>pls-api-gateway</module>
         <module>pls-clients</module>
+        <module>pls-notification</module>
     </modules>
 
     <name>parking-lot-system</name>
