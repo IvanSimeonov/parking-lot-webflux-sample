@@ -1,6 +1,6 @@
 package com.ivssim.vehicle.mappers;
 
-import com.ivssim.vehicle.domains.VehicleDTO;
+import com.ivssim.clients.vehicle.VehicleDTO;
 import com.ivssim.vehicle.models.Vehicle;
 import org.mapstruct.Mapper;
 

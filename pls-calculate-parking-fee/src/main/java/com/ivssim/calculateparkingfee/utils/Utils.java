@@ -1,8 +1,8 @@
 package com.ivssim.calculateparkingfee.utils;
 
-import com.ivssim.calculateparkingfee.enums.EuropeanEmissionStandard;
-import com.ivssim.calculateparkingfee.enums.FuelType;
-import com.ivssim.calculateparkingfee.enums.VehicleType;
+import com.ivssim.clients.vehicle.EuropeanEmissionStandard;
+import com.ivssim.clients.vehicle.FuelType;
+import com.ivssim.clients.vehicle.VehicleType;
 
 import java.util.Calendar;
 import java.util.Date;

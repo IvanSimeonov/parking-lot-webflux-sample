@@ -1,9 +1,9 @@
 package com.ivssim.calculateparkingfee.services;
 
-import com.ivssim.calculateparkingfee.models.Vehicle;
+import com.ivssim.clients.vehicle.VehicleDTO;
 import reactor.core.publisher.Mono;
 
 public interface CalculateParkingFeeService {
-    Mono<Double> calculateFee(Mono<Vehicle> vehicleMono);
+    Mono<Double> calculateFee(Mono<VehicleDTO> vehicleMono);
 
 }
