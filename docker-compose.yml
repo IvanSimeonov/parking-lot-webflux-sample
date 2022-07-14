@@ -1,6 +1,56 @@
 services:
   zipkin:
     image: openzipkin/zipkin
-    container_name: pls-zipkin
+    container_name: zipkin
     ports:
       - 9411:9411
+    networks:
+      - spring
+  pls-discovery-service:
+    image: ivannicksim/pls-discovery-service:latest
+    container_name: pls-discovery-service
+    ports:
+      - 8761:8761
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
+  pls-api-gateway:
+    image: ivannicksim/pls-api-gateway:latest
+    container_name: pls-api-gateway
+    ports:
+      - 8088:8088
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
+      - pls-discovery-service
+  pls-vehicle:
+    image: ivannicksim/pls-vehicle
+    container_name: pls-vehicle
+    ports:
+      - 8080:8080
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
+  pls-calculate-parking-fee:
+    image: ivannicksim/pls-calculate-parking-fee
+    container_name: pls-calculate-parking-fee
+    ports:
+      - 8081:8081
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
+networks:
+  spring:
+    driver: bridge

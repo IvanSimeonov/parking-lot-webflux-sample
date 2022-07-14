@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: pls-calculate-parking-fee-service
+  zipkin:
+    base-url: http://zipkin:9411
+
+server:
+  port: 8081
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://pls-discovery-service:8761/eureka
+    fetchRegistry: true
+    registerWithEureka: true
