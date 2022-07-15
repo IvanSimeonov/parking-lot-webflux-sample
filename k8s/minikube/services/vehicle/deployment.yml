@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pls-vehicle-service
+  labels:
+    app: pls-vehicle-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: pls-vehicle-service
+      labels:
+        app: pls-vehicle-service
+    spec:
+      containers:
+        - name: pls-vehicle-service
+          image: ivannicksim/pls-vehicle:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8081
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: kube
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: pls-vehicle-service

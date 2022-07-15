@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pls-calculate-parking-fee
+spec:
+  selector:
+    app: pls-calculate-parking-fee
+  ports:
+    - port: 8081
+      targetPort: 8081
+  type: LoadBalancer

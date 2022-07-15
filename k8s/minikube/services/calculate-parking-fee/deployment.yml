@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pls-calculate-parking-fee
+  labels:
+    app: pls-calculate-parking-fee
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: pls-calculate-parking-fee
+      labels:
+        app: pls-calculate-parking-fee
+    spec:
+      containers:
+        - name: pls-calculate-parking-fee
+          image: ivannicksim/pls-calculate-parking-fee:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: kube
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: pls-calculate-parking-fee
